@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="75dp"
+    android:background="#92a0f0"
+    >
+
+    <TextView
+        android:id="@+id/tag_id"
+        android:layout_width="140dp"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:gravity="center"
+
+        android:text="Tag"
+        android:textAppearance="?android:textAppearanceLarge" />
+
+    <TextView
+        android:layout_width="150dp"
+        android:layout_height="match_parent"
+        android:id="@+id/anfang_id"
+        android:layout_toRightOf="@+id/tag_id"
+        android:text="Anfang"
+        android:gravity="center"
+        android:textAppearance="?android:textAppearanceLarge"
+
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/ende_id"
+        android:layout_toRightOf="@+id/anfang_id"
+        android:text="Ende"
+        android:gravity="center"
+        android:textAppearance="?android:textAppearanceLarge"
+
+        />
+
+    <View
+        android:layout_width="1dp"
+        android:layout_height="fill_parent"
+        android:layout_toRightOf="@+id/tag_id"
+        android:background="#FF0000FF" />
+
+    <View
+        android:layout_width="1dp"
+        android:layout_height="fill_parent"
+        android:layout_toRightOf="@id/anfang_id"
+        android:background="#FF0000FF" />
+
+
+
+
+</RelativeLayout>
+
+
