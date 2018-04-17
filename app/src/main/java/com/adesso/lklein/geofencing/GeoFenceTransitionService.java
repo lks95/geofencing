@@ -8,7 +8,8 @@ import android.app.TaskStackBuilder;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
-import android.support.annotation.Nullable;
+import android.os.Build;
+import android.support.annotation.RequiresApi;
 import android.support.v4.app.NotificationCompat;
 import android.text.TextUtils;
 import android.util.Log;
@@ -16,10 +17,13 @@ import android.util.Log;
 import com.google.android.gms.location.Geofence;
 import com.google.android.gms.location.GeofenceStatusCodes;
 import com.google.android.gms.location.GeofencingEvent;
-import com.google.android.gms.tasks.Task;
 
-import java.util.ArrayList;
+import java.time.LocalTime;
 import java.util.List;
+import java.util.stream.Collectors;
+
+import timetracking.DataBaseHelper;
+
 
 /**
  * Created by lklein on 20.03.2018.
@@ -63,16 +67,13 @@ public class GeoFenceTransitionService extends IntentService {
 
     private String getGeofenceTransitionDetail(int geoFenceTransition, List<Geofence> triggeringGeofence){
 
-        ArrayList<String> geolist = new ArrayList<>();
-
-        for(Geofence geofence : triggeringGeofence) {
-            geolist.add(geofence.getRequestId());
-        }
+        final List<String> geolist = triggeringGeofence.stream().map(Geofence::getRequestId).collect(Collectors.toList());
 
         String status = null;
 
         Long timeLong = System.currentTimeMillis()/1000;
 
+    //    LocalDateTime.now().getSecond();
 
         if(geoFenceTransition == Geofence.GEOFENCE_TRANSITION_ENTER){
            // status = betreten des geofence;
@@ -104,19 +105,15 @@ public class GeoFenceTransitionService extends IntentService {
     }
         //benachrichtungen erschaffen
         private Notification createNotification(String msg, PendingIntent notificationIntent){
-            NotificationCompat.Builder notificationbuilder = new NotificationCompat.Builder(this);
-            notificationbuilder
-                    .setSmallIcon(R.drawable.ic_launcher_background)
+            return new NotificationCompat.Builder(this, "test string")
                     .setColor(Color.BLUE)
                     .setContentTitle("Geofence Notification")
                     .setContentIntent(notificationIntent)
                     .setDefaults(Notification.DEFAULT_LIGHTS | Notification.DEFAULT_VIBRATE | Notification.DEFAULT_SOUND)
-                    .setAutoCancel(true);
-            return notificationbuilder.build();
+                    .setAutoCancel(true)
+                    .build();
+        }
 
-
-
-    }
 
     private static String getErrorString(int errorCode) {
         switch (errorCode) {
@@ -131,6 +128,25 @@ public class GeoFenceTransitionService extends IntentService {
         }
     }
 
+    //notifications in datenbank speichern
+
+
+   protected void onMessage(Context context, Intent intent){
+        Log.d(TAG, "received notification");
+
+        String msg = intent.getExtras().getString("test");
+        Log.d("onmsg", msg);
+
+        NotificationCompat.Builder nBuilder = new NotificationCompat.Builder(this)
+                .setContentTitle("You entered the Geofence")
+                .setPriority(Notification.PRIORITY_HIGH)
+                .setContentText(intent.getStringExtra("test" + LocalTime.now().getSecond()));
+
+        String message = intent.getStringExtra("message");
+        DataBaseHelper dh = new DataBaseHelper(this);
+        dh.addData(message);
+
+    }
 
 
 

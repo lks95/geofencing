@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="timetracking.Timetracking"
+    android:background="#92a0f0"
+    >
+
+   <SurfaceView
+       android:layout_width="match_parent"
+       android:layout_height="40dp"
+       />
+    <ListView
+        android:layout_width="150dp"
+        android:layout_height="match_parent"
+        android:layout_marginTop="50dp"
+        android:id="@+id/ort"
+        />
+
+
+    <ListView
+        android:layout_width="100dp"
+        android:layout_height="match_parent"
+        android:layout_alignTop="@+id/ort"
+        android:layout_toEndOf="@+id/ort"
+        android:id="@+id/anfang"
+         />
+
+    <ListView
+
+        android:layout_width="100dp"
+        android:layout_height="match_parent"
+        android:layout_toEndOf="@+id/anfang"
+        android:id="@+id/ende"
+        android:layout_marginTop="50dp"
+        />
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_toEndOf="@+id/ende"
+        android:layout_marginTop="50dp"
+        />
+
+
+</RelativeLayout>

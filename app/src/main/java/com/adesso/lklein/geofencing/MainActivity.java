@@ -1,3 +1,7 @@
+/**
+ * Main Screen, Entrypoint to Application
+ */
+
 package com.adesso.lklein.geofencing;
 
 import android.Manifest;
@@ -8,18 +12,16 @@ import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.location.Location;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
@@ -65,6 +67,15 @@ public class MainActivity extends AppCompatActivity
     private MapFragment mapFragment;
 
     private static final String NOTIFICATION_MSG = "NOTIFICATION MSG";
+
+
+    /**
+     * Create a notification
+     *
+     * @param context
+     * @param msg
+     * @return
+     */
 
     public static Intent makeNotificationIntent(Context context, String msg){
         Intent intent = new Intent(context, MainActivity.class);
@@ -126,7 +137,8 @@ public class MainActivity extends AppCompatActivity
 
 //fuer timetracking
             case R.id.timetracking:{
-                startActivity(new Intent(MainActivity.this, Timetracking.class));
+                Intent myIntent = new Intent(MainActivity.this, Timetracking.class);
+                MainActivity.this.startActivity(myIntent);
             }
 
         }
@@ -303,7 +315,7 @@ public class MainActivity extends AppCompatActivity
 
     private static final long GEO_DURATION = 60*60*1000;
     private static final String GEOFENCE_REQ_ID = "My Geofence";
-    private static final float GEOFENCE_RADIUS = 500.0f; //in metern
+    private static final float GEOFENCE_RADIUS = 250.0f; //in metern
 
     private Geofence createGeofence (LatLng latLng, float radius){
         Log.d(TAG, "createGeofence");
@@ -384,8 +396,8 @@ public class MainActivity extends AppCompatActivity
 
         CircleOptions circleOptions = new CircleOptions()
                 .center(geoFenceMarker.getPosition())
-                .strokeColor(Color.argb(255, 245, 0, 37))
-                .fillColor(Color.argb(75, 245, 0, 37))
+                .strokeColor(Color.argb(200, 17, 110, 187))
+                .fillColor(Color.argb(75, 17, 110, 187))
                 .radius(GEOFENCE_RADIUS);
         geoFenceLimits = map.addCircle(circleOptions);
     }

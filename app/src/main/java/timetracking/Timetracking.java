@@ -10,11 +10,11 @@ import android.widget.Toast;
 
 import com.adesso.lklein.geofencing.R;
 
-import java.sql.Time;
-
 
 public class Timetracking extends AppCompatActivity {
 
+
+    private static final String TAG = "Timetracking";
 
     DataBaseHelper mDatabaseHelper;
     private Button btnAdd, btnViewData;
@@ -23,6 +23,7 @@ public class Timetracking extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.eingabe_timetracking);
 
@@ -35,6 +36,7 @@ public class Timetracking extends AppCompatActivity {
         btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 String clickclack = editText.getText().toString();
 
                 if(editText.length() != 0){
