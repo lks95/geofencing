@@ -38,7 +38,7 @@ public class AddActivityProjekt extends Activity implements OnClickListener {
         submit_btn.setOnClickListener(this);
     }
 
-    private OrmHelper2 getHelper() {
+    public OrmHelper2 getHelper() {
         if (databaseHelper == null) {
             databaseHelper = OpenHelperManager.getHelper(this,OrmHelper2.class);
         }

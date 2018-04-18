@@ -61,6 +61,7 @@ public class OrmHelper2 extends OrmLiteSqliteOpenHelper {
 
     }
 
+    //per getdao: insert (addData bei SQLite), delete, read, update
 
     public Dao<ProjektDetails, Integer> getProjektDao() throws SQLException {
 

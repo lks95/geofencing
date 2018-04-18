@@ -152,4 +152,5 @@ public class GeoFenceTransitionService extends IntentService {
     //notifications in database eintragen per ormlite
 
 
+
 }
