@@ -4,4 +4,8 @@
     <item android:id="@+id/geofence" android:title="Create Geofence" app:showAsAction="never" />
     <item android:id="@+id/clear" android:title="Clear Geofence" app:showAsAction="never" />
     <item android:id="@+id/timetracking" android:title="Time Tracking" app:showAsAction="always" android:icon="@android:drawable/ic_menu_compass"/>
+    <item android:id="@+id/orm" app:showAsAction="always" android:icon="@android:drawable/btn_radio"
+        android:title="OrmDataBase" />
+    <item android:id="@+id/viewormdata" app:showAsAction="never"
+        android:title="View Data" />
 </menu>

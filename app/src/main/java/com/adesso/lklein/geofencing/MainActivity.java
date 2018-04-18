@@ -44,6 +44,8 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import orm.AddActivityProjekt;
+import orm.ViewOrmData;
 import timetracking.Timetracking;
 
 public class MainActivity extends AppCompatActivity
@@ -138,6 +140,14 @@ public class MainActivity extends AppCompatActivity
 //fuer timetracking
             case R.id.timetracking:{
                 Intent myIntent = new Intent(MainActivity.this, Timetracking.class);
+                MainActivity.this.startActivity(myIntent);
+            }
+            case R.id.orm:{
+                Intent myIntent = new Intent(MainActivity.this, AddActivityProjekt.class);
+                MainActivity.this.startActivity(myIntent);
+            }
+            case R.id.viewormdata: {
+                Intent myIntent = new Intent(MainActivity.this, ViewOrmData.class);
                 MainActivity.this.startActivity(myIntent);
             }
 

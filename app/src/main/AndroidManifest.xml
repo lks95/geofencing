@@ -32,6 +32,7 @@
         <activity android:name="timetracking.ListData"></activity>
         <activity android:label="@string/app_name" android:name="timetracking.Timetracking"></activity>
         <activity android:name="timetracking.EditData"></activity>
+        <activity android:name="orm.ViewOrmData" />
     </application>
 
 </manifest>

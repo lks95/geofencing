@@ -16,6 +16,8 @@ public class ProjektDetails implements Serializable {
 
     }
 
+    public String address;
+
     public ProjektDetails(int projektID, String projektname){
         this.projektID = projektID;
         this.projektname = projektname;

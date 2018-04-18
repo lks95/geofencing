@@ -13,34 +13,35 @@
        android:layout_height="40dp"
        />
     <ListView
-        android:layout_width="150dp"
+        android:layout_width="130dp"
         android:layout_height="match_parent"
         android:layout_marginTop="50dp"
-        android:id="@+id/ort"
+        android:id="@+id/projekt"
         />
 
 
     <ListView
         android:layout_width="100dp"
         android:layout_height="match_parent"
-        android:layout_alignTop="@+id/ort"
-        android:layout_toEndOf="@+id/ort"
-        android:id="@+id/anfang"
+        android:layout_alignTop="@+id/projekt"
+        android:layout_toEndOf="@+id/projekt"
+        android:id="@+id/datum"
          />
 
     <ListView
 
         android:layout_width="100dp"
         android:layout_height="match_parent"
-        android:layout_toEndOf="@+id/anfang"
-        android:id="@+id/ende"
+        android:layout_toEndOf="@+id/datum"
+        android:id="@+id/anfang"
         android:layout_marginTop="50dp"
         />
 
     <ListView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_toEndOf="@+id/ende"
+        android:layout_toEndOf="@+id/anfang"
+        android:id="@+id/ende"
         android:layout_marginTop="50dp"
         />
 

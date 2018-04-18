@@ -128,7 +128,7 @@ public class GeoFenceTransitionService extends IntentService {
         }
     }
 
-    //notifications in datenbank speichern
+    //notifications in datenbank speichern per sql lite
 
 
    protected void onMessage(Context context, Intent intent){
@@ -149,6 +149,7 @@ public class GeoFenceTransitionService extends IntentService {
     }
 
 
+    //notifications in database eintragen per ormlite
 
 
 }
