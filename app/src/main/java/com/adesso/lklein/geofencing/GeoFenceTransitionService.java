@@ -19,9 +19,11 @@ import com.google.android.gms.location.GeofenceStatusCodes;
 import com.google.android.gms.location.GeofencingEvent;
 
 import java.time.LocalTime;
+import java.util.Calendar;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import orm.OrmHelper2;
 import timetracking.DataBaseHelper;
 
 
@@ -131,6 +133,7 @@ public class GeoFenceTransitionService extends IntentService {
     //notifications in datenbank speichern per sql lite
 
 
+   @RequiresApi(api = Build.VERSION_CODES.O)
    protected void onMessage(Context context, Intent intent){
         Log.d(TAG, "received notification");
 
@@ -151,6 +154,22 @@ public class GeoFenceTransitionService extends IntentService {
 
     //notifications in database eintragen per ormlite
 
+    protected void onMessageReceived(Intent intent) {
+        Log.d(TAG, "trying to insert notification");
 
+        Notification.Builder noti = new Notification.Builder(this)
+                .setContentTitle("You entered the Geofence")
+                .setContentText("The time is: " + Calendar.getInstance().getTimeInMillis());
+    }
+
+
+    private void sendNotification(String transitiontype, String id, Context context){
+        OrmHelper2 ormhelper = new OrmHelper2(context);
+       /* SimpleGeofence item = provider.getGeofence(id);*/
+
+
+
+
+    }
 
 }

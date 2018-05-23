@@ -2,7 +2,6 @@ package orm;
 
 import com.j256.ormlite.android.apptools.OrmLiteConfigUtil;
 
-import java.io.File;
 import java.io.IOException;
 import java.sql.SQLException;
 
@@ -19,8 +18,8 @@ public class DatabaseConfig extends OrmLiteConfigUtil {
 
     public static void main(String[]args) throws SQLException, IOException {
 
-        //
-        writeConfigFile(new File("C:/Users/lklein/geofencing/src/main/res/raw/ormlite_config.txt"));
+        writeConfigFile("ormlite_config.txt", classes);
+     /*   writeConfigFile(new File("C:/Users/lklein/geofencing/src/main/res/raw/ormlite_config.txt"));*/
     }
 
 

@@ -8,4 +8,6 @@
         android:title="OrmDataBase" />
     <item android:id="@+id/viewormdata" app:showAsAction="never"
         android:title="View Data" />
+    <item android:id="@+id/viewroomdata" app:showAsAction="never"
+        android:title="View Room Data"></item>
 </menu>

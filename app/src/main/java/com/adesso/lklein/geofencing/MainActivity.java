@@ -46,6 +46,7 @@ import com.google.android.gms.maps.model.MarkerOptions;
 
 import orm.AddActivityProjekt;
 import orm.ViewOrmData;
+import room.RoomMain;
 import timetracking.Timetracking;
 
 public class MainActivity extends AppCompatActivity
@@ -148,6 +149,12 @@ public class MainActivity extends AppCompatActivity
             }
             case R.id.viewormdata: {
                 Intent myIntent = new Intent(MainActivity.this, ViewOrmData.class);
+                MainActivity.this.startActivity(myIntent);
+            }
+
+            //fuer room
+            case R.id.viewroomdata: {
+                Intent myIntent = new Intent(MainActivity.this, RoomMain.class);
                 MainActivity.this.startActivity(myIntent);
             }
 

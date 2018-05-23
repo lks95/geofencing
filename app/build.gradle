@@ -10,6 +10,17 @@ android {
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
+
+    sourceSets {
+        main {
+            res.srcDirs = [
+                    'src/main/res/layouts/layouts_category2',
+                    'src/main/res/layouts',
+                    'src/main/res'
+            ]
+        }
+
+    }
     buildTypes {
         release {
             minifyEnabled false
@@ -33,4 +44,15 @@ dependencies {
     implementation 'com.android.support:design:26.1.0'
     implementation files('libs/ormlite-android-5.1.jar')
     implementation files('libs/ormlite-core-5.1.jar')
+}
+
+dependencies {
+    // Room components
+    implementation "android.arch.persistence.room:runtime:$rootProject.roomVersion"
+    annotationProcessor "android.arch.persistence.room:compiler:$rootProject.roomVersion"
+    androidTestImplementation "android.arch.persistence.room:testing:$rootProject.roomVersion"
+
+// Lifecycle components
+    implementation "android.arch.lifecycle:extensions:$rootProject.archLifecycleVersion"
+    annotationProcessor "android.arch.lifecycle:compiler:$rootProject.archLifecycleVersion"
 }
