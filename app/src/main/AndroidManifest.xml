@@ -33,6 +33,7 @@
         <activity android:label="@string/app_name" android:name="timetracking.Timetracking"></activity>
         <activity android:name="timetracking.EditData"></activity>
         <activity android:name="orm.ViewOrmData" />
+        <activity android:label="Room DATA" android:name="room.RoomMain"></activity>
     </application>
 
 </manifest>
