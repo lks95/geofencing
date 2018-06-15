@@ -19,8 +19,8 @@ public class Model extends AndroidViewModel{
     public Model(Application application) {
         super(application);
         r = new Repository(application);
-      /*  mAllArbeiter = r.getAllArbeiter();
-        mAllProjekte = r.getAllProjekte();*/
+        mAllArbeiter = r.getAllArbeiter();
+        mAllProjekte = r.getAllProjekte();
     }
 
     LiveData<List<addArbeiter>> getAllArbeiter(){

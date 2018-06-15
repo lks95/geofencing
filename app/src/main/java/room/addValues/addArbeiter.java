@@ -8,29 +8,39 @@ import android.support.annotation.NonNull;
 @Entity(tableName = "mytablearbeiter")
 public class addArbeiter {
 
-    @PrimaryKey
     @NonNull
+    @PrimaryKey
     @ColumnInfo(name = "arbeiter")
- //   private int id;
-    private String name;
 
+    public String arbeiterid;
+    public String name;
 
-    public addArbeiter(String name){
+    public addArbeiter(@NonNull String name) {
         this.name = name;
     }
 
-/*    public addArbeiter(@NonNull int id, String name) {
-        this.id = id;
-        this.name = name;
-    }*/
+    public String getarbeiterid() {
+        return arbeiterid;
+    }
 
-   /* public int getProjektId() {
-        return this.id;
-    }*/
+    public void setArbeiterid(String arbeiterid) {
+        this.arbeiterid = arbeiterid;
+    }
 
-    @NonNull
-    public String getName() {
+    public String getName(){
         return name;
     }
+
+    public void setName(String name){
+        this.name = name;
+    }
+
+    @NonNull
+    public String getArbeiterid() {
+        return arbeiterid;
+    }
+
+
 }
+
 

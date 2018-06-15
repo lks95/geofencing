@@ -20,6 +20,7 @@ import com.adesso.lklein.geofencing.R;
 
 import java.util.List;
 
+import orm.AddActivityProjekt;
 import room.addValues.addArbeiter;
 import room.addValues.addprojekt;
 
@@ -41,6 +42,7 @@ public class RoomMain extends AppCompatActivity {
         /*Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);*/
 
+
         RecyclerView view = findViewById(R.id.recyclerview);
         final ListAdapter adapter = new ListAdapter(this);
         view.setAdapter(adapter);
@@ -48,19 +50,9 @@ public class RoomMain extends AppCompatActivity {
 
         model = ViewModelProviders.of(this).get(Model.class);
 
-        model.getAllArbeiter().observe(this, new Observer<List<addArbeiter>>() {
-            @Override
-            public void onChanged(List<addArbeiter> addArbeiters) {
-                adapter.setArbeiters(addArbeiters);
-            }
-        });
+        model.getAllArbeiter().observe(this, addArbeiters -> adapter.setArbeiters(addArbeiters));
 
-        model.getAllProjekte().observe(this, new Observer<List<addprojekt>>() {
-            @Override
-            public void onChanged(List<addprojekt> addprojekt) {
-                adapter.setProjekte(addprojekt);
-            }
-        });
+        model.getAllProjekte().observe(this, addprojekt -> adapter.setProjekte(addprojekt));
 
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
@@ -68,7 +60,7 @@ public class RoomMain extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(RoomMain.this, addArbeiter.class);
+                Intent intent = new Intent(RoomMain.this, AddValuesActivity.class);
                 startActivityForResult(intent, NEW_ENTRY_REQUEST_CODE);
             }
         });
@@ -91,18 +83,20 @@ public class RoomMain extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void onActivitiyResult(int requestCode, int resultCode, Intent data){
 
+
+
+    public void onActivitiyResult(int requestCode, int resultCode, Intent data){
         super.onActivityResult(requestCode, resultCode, data);
 
-
-        //goon here
-
         if(requestCode == NEW_ENTRY_REQUEST_CODE && resultCode == RESULT_OK){
+
             //getStringExtra + getIntExtra ?
             addArbeiter aa = new addArbeiter(data.getStringExtra(AddValuesActivity.EXTRA_REPLY));
-        //    addArbeiter aa = new addArbeiter(data.getIntExtra(AddValuesActivity.EXTRA_REPLY) data.getStringExtra(AddValuesActivity.EXTRA_REPLY));
-          addprojekt ap = new addprojekt(data.getStringExtra(AddValuesActivity.EXTRA_REPLY));
+            addArbeiter aa1 = new addArbeiter(data.getStringExtra(AddValuesActivity.EXTRA_REPLY));
+            addprojekt ap = new addprojekt(data.getStringExtra(AddValuesActivity.EXTRA_REPLY));
+
+
             model.insertA(aa);
             model.insertP(ap);
         } else {

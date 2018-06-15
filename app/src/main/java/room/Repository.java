@@ -20,8 +20,8 @@ public class Repository {
         RoomDB db = RoomDB.getDatabase(App);
         mDao = db.DaoDao();
 
-       /* allArbeiter = mDao.getAllArbeiter();
-        allProjekte = mDao.getAllProjekte();*/
+        allArbeiter = mDao.getAllArbeiter();
+        allProjekte = mDao.getAllProjekte();
 
     }
 
@@ -37,8 +37,8 @@ public class Repository {
         new insertAsyncTask(mDao).execute(arbeiter);
     }
 
-    public void insertprojekt(addprojekt proj1){
-        new insertAsyncTask(mDao).execute((Runnable) proj1);
+     public void insertprojekt(addprojekt projekt){
+        new insertAsyncTask(mDao).execute ((Runnable) projekt);
     }
 
 

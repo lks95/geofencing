@@ -12,7 +12,8 @@ import room.addValues.addArbeiter;
 import room.addValues.addprojekt;
 
 
-@Database(entities = {addArbeiter.class, addprojekt.class, /*addGeofence.class*/}, version = 1)//addprojekt missing statement
+@Database(entities = {addArbeiter.class, addprojekt.class, /*addGeofence.class*/}, version = 1)
+
 public abstract class RoomDB extends RoomDatabase {
 
     public abstract DaoTest DaoDao();
@@ -66,7 +67,7 @@ public abstract class RoomDB extends RoomDatabase {
             addArbeiter aa = new addArbeiter( "Hanse");
             DaoK.insertarbeiter(aa);
 
-            aa = new addArbeiter( "Peterle");
+            aa = new addArbeiter("Peterle");
             DaoK.insertarbeiter(aa);
 
             addprojekt ap = new addprojekt("android");

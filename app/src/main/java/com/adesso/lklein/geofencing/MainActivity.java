@@ -147,6 +147,7 @@ public class MainActivity extends AppCompatActivity
                 Intent myIntent = new Intent(MainActivity.this, AddActivityProjekt.class);
                 MainActivity.this.startActivity(myIntent);
             }
+            //orm kann weg
             case R.id.viewormdata: {
                 Intent myIntent = new Intent(MainActivity.this, ViewOrmData.class);
                 MainActivity.this.startActivity(myIntent);

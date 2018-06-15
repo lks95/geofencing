@@ -27,15 +27,12 @@ import room.addValues.addprojekt;
         public void deleteAll();
 
 
-/*        @Query("SELECT * FROM mytable")
-        LiveData<List> getAllData();*/
-
-       /* @Query("SELECT * FROM mytable")
+       @Query("SELECT * FROM mytablearbeiter")
         LiveData<List<addArbeiter>> getAllArbeiter();
 
-        @Query("SELECT * FROM mytable")
+        @Query("SELECT * FROM mytableprojekt")
         LiveData<List<addprojekt>> getAllProjekte();
-*/
+
     }
 
 

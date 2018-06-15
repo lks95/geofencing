@@ -28,23 +28,18 @@ public class AddValuesActivity extends AppCompatActivity {
         edittext2 = findViewById(R.id.mitarbeiter_eingabe);
 
         final Button button = findViewById(R.id.sendbutton);
-        button.setOnClickListener(new View.OnClickListener() {
+        //funktion der eingabe
+        button.setOnClickListener(v -> {
+            Intent intent = new Intent();
 
-            //funktion der eingabe
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent();
-
-                if (TextUtils.isEmpty(editText.getText()) && TextUtils.isEmpty(edittext2.getText())) {
-                    setResult(RESULT_CANCELED, intent);
-                } else {
-                    String s = editText.getText().toString();
-                    intent.putExtra(EXTRA_REPLY, s);
-                    setResult(RESULT_OK, intent);
-                }
-                finish();
+            if (TextUtils.isEmpty(editText.getText()) && TextUtils.isEmpty(edittext2.getText())) {
+                setResult(RESULT_CANCELED, intent);
+            } else {
+                String s = editText.getText().toString();
+                intent.putExtra(EXTRA_REPLY, s);
+                setResult(RESULT_OK, intent);
             }
-
+            finish();
         });
 
     }
